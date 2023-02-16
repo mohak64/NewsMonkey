@@ -10,7 +10,7 @@ export class NavBar extends Component {
     return (
       <div>
         {/* class-className,, href mai # ko replace kro with /  */ }
-          <nav className="navbar navbar-expand-lg bg-body-tertiary">
+          <nav className="navbar bg-primary navbar-expand-lg" data-bs-theme="dark" >
             <div className="container-fluid">
                 <a className="navbar-brand" href="/">NewsMonkey</a>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
