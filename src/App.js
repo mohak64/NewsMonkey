@@ -1,5 +1,4 @@
-
-import './App.css';
+import "./App.css";
 
 // function App() {
 //   return (
@@ -24,21 +23,20 @@ import './App.css';
 
 // export default App;
 
-import React, { Component } from 'react' //rcc - class based component
-import { NavBar } from './components/NavBar';
-import News from './components/News';
- 
+import React, { Component } from "react"; //rcc - class based component
+import { NavBar } from "./components/NavBar";
+import News from "./components/News";
+
 export default class App extends Component {
   // c = 'mohak'
   render() {
     return (
       <div>
-        <NavBar/>
-        <News/>
-        
+        <NavBar />
+        <News />
+
         {/* Hello my first class based compoment {this.c} */}
       </div>
-    )
+    );
   }
 }
-

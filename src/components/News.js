@@ -1,121 +1,137 @@
-import React, { Component } from 'react' //rce
-import NewsItem from './NewsItem'
+import React, { Component } from "react"; //rce
+import NewsItem from "./NewsItem";
 
 export class News extends Component {
   articles = [
-        
-        {
-            "source": {
-                "id": "wired",
-                "name": "Wired"
-            },
-            "author": "Boone Ashworth",
-            "title": "OnePlus Pad Android Tablet: Details, Specs, Release Date",
-            "description": "Plus: Netflix expands its efforts to end password sharing, Apple’s “buy now, pay later” entry creeps closer, and we scrutinize your Bitcoin spending.",
-            "url": "https://www.wired.com/story/oneplus-pad-android-tablet/",
-            "urlToImage": "https://media.wired.com/photos/63e69faddcab861f7a47469f/191:100/w_1280,c_limit/OnePlus-Pad-Gear-Roundup-Featured-Gear.jpg",
-            "publishedAt": "2023-02-11T14:00:00Z",
-            "content": "Theres no shortage of tablets in the world, from the ever-dominant iPad to an assortment of Android options and Fire tabs to the niche weirdos like the E-ink and stylus Kindle Scribe. Now, OnePlus, a… [+4068 chars]"
-        },
-        {
-            "source": {
-                "id": null,
-                "name": "Gizmodo.com"
-            },
-            "author": "Mack DeGeurin",
-            "title": "El Salvador Is Planning a 'Bitcoin Embassy' in Texas After Losing Tens of Millions on Crypto",
-            "description": "El Salvador, which has already lost tens of millions of taxpayer dollars on its authoritarian millennial president’s beleaguered effort to embrace cryptocurrencies, now says it plans to open a “bitcoin embassy” in Texas. The Central American country’s continu…",
-            "url": "https://gizmodo.com/bitcoin-price-el-salvador-embassy-texas-crypto-crash-1850118217",
-            "urlToImage": "https://i.kinja-img.com/gawker-media/image/upload/c_fill,f_auto,fl_progressive,g_center,h_675,pg_1,q_80,w_1200/ccb1cf72839bb2d47936bf0eadf47da0.jpg",
-            "publishedAt": "2023-02-15T18:03:53Z",
-            "content": "El Salvador, which has already lost tens of millions of taxpayer dollars on its authoritarian millennial presidents beleaguered effort to embrace cryptocurrencies, now says it plans to open a bitcoin… [+2879 chars]"
-        },
-        {
-            "source": {
-                "id": "reuters",
-                "name": "Reuters"
-            },
-            "author": null,
-            "title": "Cryptoverse: Big investors edge back to bitcoin - Reuters",
-            "description": "Big investors are dipping their toes into crypto waters again after a bumper month for bitcoin.",
-            "url": "https://www.reuters.com/technology/cryptoverse-big-investors-edge-back-bitcoin-2023-01-31/",
-            "urlToImage": "https://www.reuters.com/resizer/wVEBWtf3RmkXKgyvKm8NmhJ80-U=/1200x628/smart/filters:quality(80)/cloudfront-us-east-2.images.arcpublishing.com/reuters/FE2DLHQ4UBOOPNWFOIS34JBLP4.jpg",
-            "publishedAt": "2023-01-31T06:01:08Z",
-            "content": "Jan 31 (Reuters) - Big investors are dipping their toes into crypto waters again after a bumper month for bitcoin.\r\nDigital asset investment products, often favored by institutional investors, saw in… [+4079 chars]"
-        },
-        {
-            "source": {
-                "id": null,
-                "name": "Benzinga"
-            },
-            "author": "Mehab Qureshi",
-            "title": "Bitcoin Surges Above $21K, Ethereum, Dogecoin Rally Intact — Analyst Says This 'Could Awaken Some Dormant Long-Term Bulls' - Benzinga",
-            "description": "<ol><li>Bitcoin Surges Above $21K, Ethereum, Dogecoin Rally Intact — Analyst Says This 'Could Awaken Some Dormant Long-Term Bulls'  Benzinga\r\n</li><li>Bitcoin roars past $20K in surprise surge. Can the rally last?  Fortune\r\n</li><li>Bitcoin rises 5.6% to $210…",
-            "url": "https://www.benzinga.com/markets/cryptocurrency/23/01/30424910/bitcoin-surges-above-21k-ethereum-dogecoin-rally-intact-analyst-says-this-could-awaken-som",
-            "urlToImage": "https://cdn.benzinga.com/files/images/story/2023/01/15/kanchanara-4kjjezdyo3m-unsplash.jpg?width=1200&height=800&fit=crop",
-            "publishedAt": "2023-01-16T02:50:45Z",
-            "content": "Major coins traded green on Sunday buoyed by renewed investor confidence that the Federal Reserve is managing inflation successfully without pushing the economy into recession. \r\n<table><tr><th>Crypt… [+2581 chars]"
-        },
-        {
-            "source": {
-                "id": "reuters",
-                "name": "Reuters"
-            },
-            "author": null,
-            "title": "Cryptoverse: Bitcoin is back with a bonk - Reuters",
-            "description": "Bitcoin is on the charge in 2023, dragging the crypto market off the floor and electrifying bonk, a new meme coin.",
-            "url": "https://www.reuters.com/technology/cryptoverse-bitcoin-is-back-with-bonk-2023-01-17/",
-            "urlToImage": "https://www.reuters.com/resizer/jPD5gWOp4iaNFHGJCoc9M20WksQ=/1200x628/smart/filters:quality(80)/cloudfront-us-east-2.images.arcpublishing.com/reuters/MLQZOZNWTZLSRJTK4RZJLSI364.jpg",
-            "publishedAt": "2023-01-17T06:16:00Z",
-            "content": "Jan 17 (Reuters) - Bitcoin is on the charge in 2023, dragging the crypto market off the floor and electrifying bonk, a new meme coin.\r\nThe No.1 cryptocurrency has clocked a 26% gain in January, leapi… [+4367 chars]"
-        },
-        {
-          "source": {
-              "id": "business-insider",
-              "name": "Business Insider"
-          },
-          "author": "hbullock@insider.com (Hallam Bullock)",
-          "title": "How to get ahead in 2023",
-          "description": "Insider's Hallam Bullock has rounded up some of our top markets stories. Including top tips for stocks and what to expect for the rest of 2023.",
-          "url": "https://www.businessinsider.com/how-to-get-ahead-in-2023-2023-1",
-          "urlToImage": "https://i.insider.com/63bf31ef33ffb700180f63f5?width=1200&format=jpeg",
-          "publishedAt": "2023-01-16T11:05:00Z",
-          "content": "Hello friends. Insider's newsletter editor Hallam Bullock here, reporting from London while Phil Rosen is out. Even though ChatGPT wrote a convincing article for Phil last week, AI can't hope to deli… [+3771 chars]"
-      }
-    ]
+    {
+      source: {
+        id: "wired",
+        name: "Wired",
+      },
+      author: "Boone Ashworth",
+      title: "OnePlus Pad Android Tablet: Details, Specs, Release Date",
+      description:
+        "Plus: Netflix expands its efforts to end password sharing, Apple’s “buy now, pay later” entry creeps closer, and we scrutinize your Bitcoin spending.",
+      url: "https://www.wired.com/story/oneplus-pad-android-tablet/",
+      urlToImage:
+        "https://media.wired.com/photos/63e69faddcab861f7a47469f/191:100/w_1280,c_limit/OnePlus-Pad-Gear-Roundup-Featured-Gear.jpg",
+      publishedAt: "2023-02-11T14:00:00Z",
+      content:
+        "Theres no shortage of tablets in the world, from the ever-dominant iPad to an assortment of Android options and Fire tabs to the niche weirdos like the E-ink and stylus Kindle Scribe. Now, OnePlus, a… [+4068 chars]",
+    },
+    {
+      source: {
+        id: null,
+        name: "Gizmodo.com",
+      },
+      author: "Mack DeGeurin",
+      title:
+        "El Salvador Is Planning a 'Bitcoin Embassy' in Texas After Losing Tens of Millions on Crypto",
+      description:
+        "El Salvador, which has already lost tens of millions of taxpayer dollars on its authoritarian millennial president’s beleaguered effort to embrace cryptocurrencies, now says it plans to open a “bitcoin embassy” in Texas. The Central American country’s continu…",
+      url: "https://gizmodo.com/bitcoin-price-el-salvador-embassy-texas-crypto-crash-1850118217",
+      urlToImage:
+        "https://i.kinja-img.com/gawker-media/image/upload/c_fill,f_auto,fl_progressive,g_center,h_675,pg_1,q_80,w_1200/ccb1cf72839bb2d47936bf0eadf47da0.jpg",
+      publishedAt: "2023-02-15T18:03:53Z",
+      content:
+        "El Salvador, which has already lost tens of millions of taxpayer dollars on its authoritarian millennial presidents beleaguered effort to embrace cryptocurrencies, now says it plans to open a bitcoin… [+2879 chars]",
+    },
+    {
+      source: {
+        id: "reuters",
+        name: "Reuters",
+      },
+      author: null,
+      title: "Cryptoverse: Big investors edge back to bitcoin - Reuters",
+      description:
+        "Big investors are dipping their toes into crypto waters again after a bumper month for bitcoin.",
+      url: "https://www.reuters.com/technology/cryptoverse-big-investors-edge-back-bitcoin-2023-01-31/",
+      urlToImage:
+        "https://www.reuters.com/resizer/wVEBWtf3RmkXKgyvKm8NmhJ80-U=/1200x628/smart/filters:quality(80)/cloudfront-us-east-2.images.arcpublishing.com/reuters/FE2DLHQ4UBOOPNWFOIS34JBLP4.jpg",
+      publishedAt: "2023-01-31T06:01:08Z",
+      content:
+        "Jan 31 (Reuters) - Big investors are dipping their toes into crypto waters again after a bumper month for bitcoin.\r\nDigital asset investment products, often favored by institutional investors, saw in… [+4079 chars]",
+    },
+    {
+      source: {
+        id: null,
+        name: "Benzinga",
+      },
+      author: "Mehab Qureshi",
+      title:
+        "Bitcoin Surges Above $21K, Ethereum, Dogecoin Rally Intact — Analyst Says This 'Could Awaken Some Dormant Long-Term Bulls' - Benzinga",
+      description:
+        "Bitcoin Surges Above $21K, Ethereum, Dogecoin Rally Intact — Analyst Says This 'Could Awaken Some Dormant Long-Term Bulls'  Benzinga\r\nBitcoin roars past $20K in surprise surge. Can the rally last?  Fortune\r\n</li><li>Bitcoin rises 5.6% to $210…",
+      url: "https://www.benzinga.com/markets/cryptocurrency/23/01/30424910/bitcoin-surges-above-21k-ethereum-dogecoin-rally-intact-analyst-says-this-could-awaken-som",
+      urlToImage:
+        "https://cdn.benzinga.com/files/images/story/2023/01/15/kanchanara-4kjjezdyo3m-unsplash.jpg?width=1200&height=800&fit=crop",
+      publishedAt: "2023-01-16T02:50:45Z",
+      content:
+        "Major coins traded green on Sunday buoyed by renewed investor confidence that the Federal Reserve is managing inflation successfully without pushing the economy into recession. \r\n<table><tr><th>Crypt… [+2581 chars]",
+    },
+    {
+      source: {
+        id: "reuters",
+        name: "Reuters",
+      },
+      author: null,
+      title: "Cryptoverse: Bitcoin is back with a bonk - Reuters",
+      description:
+        "Bitcoin is on the charge in 2023, dragging the crypto market off the floor and electrifying bonk, a new meme coin.",
+      url: "https://www.reuters.com/technology/cryptoverse-bitcoin-is-back-with-bonk-2023-01-17/",
+      urlToImage:
+        "https://www.reuters.com/resizer/jPD5gWOp4iaNFHGJCoc9M20WksQ=/1200x628/smart/filters:quality(80)/cloudfront-us-east-2.images.arcpublishing.com/reuters/MLQZOZNWTZLSRJTK4RZJLSI364.jpg",
+      publishedAt: "2023-01-17T06:16:00Z",
+      content:
+        "Jan 17 (Reuters) - Bitcoin is on the charge in 2023, dragging the crypto market off the floor and electrifying bonk, a new meme coin.\r\nThe No.1 cryptocurrency has clocked a 26% gain in January, leapi… [+4367 chars]",
+    },
+    {
+      source: {
+        id: "business-insider",
+        name: "Business Insider",
+      },
+      author: "hbullock@insider.com (Hallam Bullock)",
+      title: "How to get ahead in 2023",
+      description:
+        "Insider's Hallam Bullock has rounded up some of our top markets stories. Including top tips for stocks and what to expect for the rest of 2023.",
+      url: "https://www.businessinsider.com/how-to-get-ahead-in-2023-2023-1",
+      urlToImage:
+        "https://i.insider.com/63bf31ef33ffb700180f63f5?width=1200&format=jpeg",
+      publishedAt: "2023-01-16T11:05:00Z",
+      content:
+        "Hello friends. Insider's newsletter editor Hallam Bullock here, reporting from London while Phil Rosen is out. Even though ChatGPT wrote a convincing article for Phil last week, AI can't hope to deli… [+3771 chars]",
+    },
+  ];
 
-  constructor(){
+  constructor() {
     super();
     this.state = {
       articles: this.articles,
-      loading: false
-    }
+      loading: false,
+    };
   }
   render() {
     return (
-      <div className='container' my-3>
+      <div className="container my-3">
         <h2>NewsMonkey - Top Headlines</h2>
         {/* this is an news component */}
-
-        <div className='row'>
-            <div className="col-md-4">
-            <NewsItem  title="mytitle" description="jodmohak" imageUrl="https://cdn.benzinga.com/files/images/story/2023/01/15/kanchanara-4kjjezdyo3m-unsplash.jpg?width=1200&height=800&fit=crop" newsUrl="TODO"/>
-            </div>
-
-            <div className="col-md-4">
-            <NewsItem  title="mytitle" description="jodmohak"/>
-            </div>
-
-            <div className="col-md-4">
-            <NewsItem  title="mytitle" description="jodmohak"/>
-            </div>
+        <div className="row">
+          {this.state.articles.map((element) => {
+            return (
+              <div className="col-md-4" key={element.url}>
+                <NewsItem
+                  title={element.title.slice(0, 35)}
+                  description={element.description.slice(0, 120)}
+                  imageUrl={element.urlToImage}
+                  newsUrl={element.url}
+                />
+              </div>
+            );
+          })}
         </div>
-        
-        
-        
       </div>
-    )
+    );
   }
 }
 
-export default News
+export default News;
