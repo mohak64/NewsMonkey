@@ -1,5 +1,6 @@
 import React, { Component } from "react"; //rce
 import NewsItem from "./NewsItem";
+import Spinner from "./Spinner";
 
 export class News extends Component {
   // articles = [
@@ -112,13 +113,14 @@ export class News extends Component {
     };
   }
   async componentDidMount() {
-    let url =
-      `https://newsapi.org/v2/top-headlines?country=in&apiKey=bc0b9cd7fbb9409da9423e5fda777e67&page=1&pageSize=${this.props.pageSize}`;
+    let url = `https://newsapi.org/v2/top-headlines?country=in&apiKey=bc0b9cd7fbb9409da9423e5fda777e67&page=1&pageSize=${this.props.pageSize}`;
+    this.setState({ loading: true });
     let data = await fetch(url); //promise degi
     let parsedData = await data.json();
     this.setState({
       articles: parsedData.articles,
       totalResults: parsedData.totalResults,
+      loading: false,
     });
   }
 
@@ -126,27 +128,35 @@ export class News extends Component {
     let url = `https://newsapi.org/v2/top-headlines?country=in&apiKey=bc0b9cd7fbb9409da9423e5fda777e67&page=${
       this.state.page - 1
     }&pageSize=${this.props.pageSize}`;
+    this.setState({ loading: true });
     let data = await fetch(url); //promise degi
     let parsedData = await data.json();
 
     this.setState({
       page: this.state.page - 1,
       articles: parsedData.articles,
+      loading: false,
     });
   };
 
   handleNextClick = async () => {
-    if (this.state.page + 1 > Math.ceil(this.state.totalResults / this.props.pageSize)) {
-    } else {
+    if (
+      !(
+        this.state.page + 1 >
+        Math.ceil(this.state.totalResults / this.props.pageSize)
+      )
+    ) {
       let url = `https://newsapi.org/v2/top-headlines?country=in&apiKey=bc0b9cd7fbb9409da9423e5fda777e67&page=${
         this.state.page + 1
       }&pageSize=${this.props.pageSize}`;
+      this.setState({ loading: true });
       let data = await fetch(url); //promise degi
       let parsedData = await data.json();
 
       this.setState({
         page: this.state.page + 1,
         articles: parsedData.articles,
+        loading: false,
       });
     }
   };
@@ -155,9 +165,10 @@ export class News extends Component {
     return (
       <div className="container my-3">
         <h1 className="text-center">NewsMonkey - Top Headlines</h1>
+        {this.state.loading && <Spinner />}
         {/* this is an news component */}
         <div className="row">
-          {this.state.articles.map((element) => {
+          {!this.state.loading && this.state.articles.map((element) => {
             return (
               <div className="col-md-4" key={element.url}>
                 <NewsItem
@@ -181,7 +192,10 @@ export class News extends Component {
             &larr; Previous Page
           </button>
           <button
-          disabled={this.state.page + 1 > Math.ceil(this.state.totalResults / this.props.pageSize)}
+            disabled={
+              this.state.page + 1 >
+              Math.ceil(this.state.totalResults / this.props.pageSize)
+            }
             type="button"
             className="btn btn-primary"
             onClick={this.handleNextClick}
