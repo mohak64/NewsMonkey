@@ -1,5 +1,3 @@
-import "./App.css";
-
 // function App() {
 //   return (
 //     <div className="App">
@@ -22,7 +20,7 @@ import "./App.css";
 // }
 
 // export default App;
-
+import "./App.css";
 import React, { Component } from "react"; //rcc - class based component
 import { NavBar } from "./components/NavBar";
 import News from "./components/News";
