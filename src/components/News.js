@@ -113,7 +113,7 @@ export class News extends Component {
   }
   async componentDidMount() {
     let url =
-      "https://newsapi.org/v2/top-headlines?country=in&apiKey=bc0b9cd7fbb9409da9423e5fda777e67&page=1&pageSize=20";
+      `https://newsapi.org/v2/top-headlines?country=in&apiKey=bc0b9cd7fbb9409da9423e5fda777e67&page=1&pageSize=${this.props.pageSize}`;
     let data = await fetch(url); //promise degi
     let parsedData = await data.json();
     this.setState({
@@ -125,7 +125,7 @@ export class News extends Component {
   handlePrevClick = async () => {
     let url = `https://newsapi.org/v2/top-headlines?country=in&apiKey=bc0b9cd7fbb9409da9423e5fda777e67&page=${
       this.state.page - 1
-    }&pageSize=20`;
+    }&pageSize=${this.props.pageSize}`;
     let data = await fetch(url); //promise degi
     let parsedData = await data.json();
 
@@ -136,11 +136,11 @@ export class News extends Component {
   };
 
   handleNextClick = async () => {
-    if (this.state.page + 1 > Math.ceil(this.state.totalResults / 20)) {
+    if (this.state.page + 1 > Math.ceil(this.state.totalResults / this.props.pageSize)) {
     } else {
       let url = `https://newsapi.org/v2/top-headlines?country=in&apiKey=bc0b9cd7fbb9409da9423e5fda777e67&page=${
         this.state.page + 1
-      }&pageSize=20`;
+      }&pageSize=${this.props.pageSize}`;
       let data = await fetch(url); //promise degi
       let parsedData = await data.json();
 
@@ -154,7 +154,7 @@ export class News extends Component {
   render() {
     return (
       <div className="container my-3">
-        <h2>NewsMonkey - Top Headlines</h2>
+        <h1 className="text-center">NewsMonkey - Top Headlines</h1>
         {/* this is an news component */}
         <div className="row">
           {this.state.articles.map((element) => {
@@ -181,6 +181,7 @@ export class News extends Component {
             &larr; Previous Page
           </button>
           <button
+          disabled={this.state.page + 1 > Math.ceil(this.state.totalResults / this.props.pageSize)}
             type="button"
             className="btn btn-primary"
             onClick={this.handleNextClick}

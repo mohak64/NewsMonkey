@@ -33,7 +33,7 @@ export default class App extends Component {
     return (
       <div>
         <NavBar />
-        <News />
+        <News pageSize={5}/>
 
         {/* Hello my first class based compoment {this.c} */}
       </div>
