@@ -117,13 +117,16 @@ export class News extends Component {
   //   },
   // ];
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       articles: [], //this.articles
       loading: false,
       page: 1,
     };
+    document.title = `${
+      this.props.category.charAt(0).toUpperCase() + this.props.category.slice(1)
+    } - NewsMonkey`;
   }
 
   async updateNews() {
@@ -204,7 +207,7 @@ export class News extends Component {
     return (
       <div className="container my-3">
         <h1 className="text-center">
-          NewsMonkey - Top{" "}
+          NewsMonkey -{" "}
           {this.props.category.charAt(0).toUpperCase() +
             this.props.category.slice(1)}{" "}
           Headlines
