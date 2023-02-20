@@ -22,7 +22,7 @@
 // export default App;
 import "./App.css";
 import React, { Component } from "react"; //rcc - class based component
-import { NavBar } from "./components/NavBar";
+import NavBar from "./components/NavBar";
 import News from "./components/News";
 import LoadingBar from "react-top-loading-bar";
 
