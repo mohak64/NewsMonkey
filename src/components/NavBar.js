@@ -12,7 +12,7 @@ const NavBar = () => {
   return (
     <div>
       {/* class-className,, href mai # ko replace kro with /  */}
-      <nav className="navbar bg-primary navbar-expand-lg" data-bs-theme="dark">
+      <nav className="navbar fixed-top bg-primary navbar-expand-lg" data-bs-theme="dark">
         <div className="container-fluid">
           <Link className="navbar-brand" to="/">
             NewsMonkey
